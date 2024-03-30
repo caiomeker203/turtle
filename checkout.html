@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Finalização de Compra</title>
+</head>
+
+<body class="body2">
+    <header class="topo2">
+        <h1 class="title">Compra Finalizada</h1>
+        <p class="text2">Obrigado por escolher nossos produtos!</p>
+    </header>
+
+    <section class="container">
+        <div class="mobile">
+            <p>Obrigado por fazer negócios conosco!</p>
+
+        </div>
+        <div class="resume">
+
+            <h2>Resumo do Pedido</h2>
+            <ul id="lista-carrinho"></ul>
+            <p class="total" style="color: black;">Total: R$ <span id="total-carrinho">0.00</span></p>
+            <div class="divInfo">
+                <h2>Informações:</h2>
+                <div class="inputs">
+                    <input type="text" placeholder="Digite seu nome" id="nome" required
+                        pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s]+" />
+                    <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone" required
+                        pattern="[0-9]{10}">
+                    <div id="error-msg">Por favor coloque seus dados ou verifique seu carrinho</div>
+
+                </div>
+                <button onclick="voltarParaLoja()" id="voltarL"><span class="btnC">Voltar para loja</span></button>
+                <button id="finalizar-compra" class="confir"><span class="btnC">Confirmar Compra</span></button>
+            </div>
+
+        </div>
+
+
+
+       
+    </section>
+
+
+
+
+
+
+
+
+    <script>
+
+
+
+
+
+
+
+
+
+
+
+        let totalCarrinhoElement = document.querySelector('#total-carrinho')
+        let objetoRecu = JSON.parse(localStorage.getItem('listaCarrinho'))
+        console.log(objetoRecu)
+
+        const list = document.querySelector('#lista-carrinho')
+
+        
+
+        
+
+
+
+
+        var total = 0;
+        objetoRecu.forEach(function (item) {
+            var novoItemElement = document.createElement('li');
+            novoItemElement.innerHTML = item.quantidade + 'x ' + item.nome + ' -  ' + item.sabor + ' - R$ ' + item.preco.toFixed(2) * item.quantidade
+            list.appendChild(novoItemElement);
+
+            total += item.preco * item.quantidade;
+        });
+        totalCarrinhoElement.textContent = total.toFixed(2);
+
+
+
+        document.getElementById('finalizar-compra').addEventListener('click', function () {
+            var nomeP = document.getElementById('nome').value;
+            var telefone = document.getElementById('telefone').value;
+            var errorMsg = document.getElementById('error-msg');
+            var errorA = document.getElementById('errorA')
+            var mobile = document.querySelector('.mobile')
+            
+
+
+
+
+            if (nomeP === "" || telefone === "" || objetoRecu.length === 0) {
+                errorMsg.style.display = "block";
+                return false;
+            } else {
+                mobile.style.display = 'block'
+                errorMsg.style.display = "none";
+                var mensagem = 'Gostaria dos seguintes produtos: \n';
+
+                var itens = document.querySelectorAll('#lista-carrinho li');
+                let dados = 'Nome:' + nomeP + '\n' + 'Telefone:' + telefone
+                itens.forEach(function (item) {
+                    mensagem += item.textContent.trim().replace('Remover', '') + '\n';
+
+                });
+                mensagem += 'Total: R$ ' + document.getElementById('total-carrinho').textContent + '\n' + '\nDados: \n' + dados;
+                var url = 'https://wa.me/5519993384255?text=' + encodeURIComponent(mensagem);
+                window.location.href = url;
+                return true;
+            }
+        });
+
+
+
+        function voltarParaLoja() {
+            localStorage.clear()
+
+            window.location = 'index2.html'
+        }
+
+
+
+
+    </script>
+
+
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
