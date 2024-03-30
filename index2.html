@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cigarros Eletrônicos</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha384-RLhiUhiYiKuo5N/6mQjZamv3cFViMfTKFqc7sNq2BR6DQp0/ep5o6JCz9P0qoAcp" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="fundo">
+
+        <header class="topo">
+            <img src="images/logoNikT.png" class="logo" />
+            <button id="sexo">aaaaaa</button>
+            <button id="sexo">aaaaaa</button>
+            <button id="sexo">aaaaaa</button>
+            <button id="sexo">aaaaaa</button>
+            <button id="sexo">aaaaaa</button>
+            <img src="images/Carinho_branco-removebg-preview.png" alt="cart" width="50" height="50" class="cart-icon">
+        </header>
+
+        <div class="fundo2">
+            <section class="banner">
+
+            </section>
+
+            <section class="container">
+                <div class="product">
+                    <img src="images/produto1.jpg" alt="Ignite V80" class="img-fluid mb-3">
+                    <h2>Ignite V80</h2>
+                    <p>Ignite V80 - 8000 puffs</p>
+                    <span class="price">R$ 115,00</span>
+                    <div class="sabores">
+                        <label for="sabor-produto1">Escolha o sabor:</label>
+                        <select id="sabor-produto1">
+                            <option value="Green Apple">Green Apple</option>
+                            <option value="Watermelon ice">Watermelon ice</option>
+                            <option value="Strawberry kiwi">Strawberry kiwi</option>
+                            <option value="Grape ice">Grape ice</option>
+                            <option value="Strawberry ice">Strawberry ice</option>
+
+                        </select>
+                    </div>
+
+                    <h5>Quantidade(Max: 3)</h5>
+                    <div class="quantidade">
+
+                        <button class="quantidade menos">-</button>
+                        <input type="number" id="quant" min="1" max="3" value="1">
+                        <button class="quantidade  mais">+</button>
+                    </div>
+                    <button class=" btnAdd  addToCart" data-nome="Ignite V80" data-preco="115,00"><span
+                            class="btnC">Adicionar ao Carrinho</span></button>
+                </div>
+
+                <div class="product">
+                    <img src="images/produto2.jpg" alt="Ignite V50" class="img-fluid mb-3">
+                    <h2>Ignite V50</h2>
+                    <p>Ignite V50 - 5000 puffs</p>
+                    <span class="price">R$ 95,00</span>
+                    <div class="sabores">
+                        <label for="sabor-produto2">Escolha o sabor:</label>
+                        <select id="sabor-produto2 ">
+                            <option value="Strawberry kiwi">Strawberry kiwi</option>
+                            <option value="Watermelon ice">Watermelon ice</option>
+                            <option value="Watermelon mix">Watermelon mix</option>
+                            <option value="Green Apple">Green Apple</option>
+                            <option value="Bluberry ice">Bluberry ice</option>
+                            <option value="Peach mango ">Peach mango</option>
+                            <option value="Watermelon">Watermelon</option>
+                            <option value="Mixed berries">Mixed berries</option>
+                        </select>
+                    </div>
+
+                    <h5>Quantidade(Max: 3)</h5>
+                    <div class="quantidade">
+
+                        <button class="quantidade menos">-</button>
+                        <input type="number" id="quant" min="1" max="3" value="1">
+                        <button class="quantidade  mais">+</button>
+                    </div>
+                    <button class="btnAdd  addToCart" data-nome="Ignite V50" data-preco="95,00"><span
+                            class="btnC">Adicionar
+                            ao Carrinho</span></button>
+                </div>
+
+                <div class="product">
+                    <img src="images/produto3.jpg" alt="OxBarg 8000" class="img-fluid mb-3">
+                    <h2>OxBarg 8000</h2>
+                    <p>OxBarg 8000 - 8000 puffs</p>
+                    <span class="price">R$ 120,00</span>
+                    <div class="sabores">
+                        <label for="sabor-produto3">Escolha o sabor:</label>
+                        <select id="sabor-produto3">
+                            <option value="sabor1">Sabor 1</option>
+                            <option value="sabor2">Sabor 2</option>
+                            <option value="sabor3">Sabor 3</option>
+                        </select>
+                    </div>
+
+                    <h5>Quantidade(Max: 3)</h5>
+                    <div class="quantidade">
+
+                        <button class="quantidade menos">-</button>
+                        <input type="number" id="quant" min="1" max="3" value="1">
+                        <button class="quantidade  mais">+</button>
+                    </div>
+                    <button class="btnAdd  addToCart" data-nome="OxBarg 8000" data-preco="120,00"><span
+                            class="btnC">Adicionar ao Carrinho</span></button>
+                </div>
+
+
+            </section>
+        </div>
+
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <span class="close">X</span>
+                <h2>Seu Carrinho</h2>
+                <ul id="lista-carrinho"></ul>
+                <p class="total" style="margin: 10px;">Total: R$ <span id="total-carrinho">0.00</span></p>
+                <button id="checkoutBtn" class="btnAdd"><span class="btnC">Finalizar compra</span></button>
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+
+</html>
